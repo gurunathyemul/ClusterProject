@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ClusterProject"
-include(":app")
+include(":presentation")
  
