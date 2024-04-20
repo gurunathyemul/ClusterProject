@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "ClusterProject"
 include(":presentation")
- 
+include(":domain")
+include(":data")
