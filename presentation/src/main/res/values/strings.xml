@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">NewProject</string>
+    <string name="news">News</string>
+    <string name="contact">Contact</string>
+    <string name="ble">BLE</string>
+    <string name="ipc">IPC</string>
+    <string name="select_the_contacts">Please select the contacts to delete</string>
+    <string name="no_contacts_available">No Contacts Available</string>
+    <string name="please_check_internet_connection">Please Check Internet Connection</string>
 </resources>

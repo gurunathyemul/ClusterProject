@@ -31,7 +31,11 @@ class ErrorHandler : IErrorHandler {
 
             else -> null
         }
-        return errorModel ?: ErrorModel("No Defined Error!", 0, ErrorModel.ErrorStatus.BAD_RESPONSE)
+        return errorModel ?: ErrorModel(
+            "${throwable?.message}",
+            0,
+            ErrorModel.ErrorStatus.BAD_RESPONSE
+        )
     }
 
     /**

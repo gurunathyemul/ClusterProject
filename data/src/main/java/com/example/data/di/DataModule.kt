@@ -1,13 +1,18 @@
 package com.example.data.di
 
+import android.app.Application
 import android.content.Context
 import com.example.data.ErrorHandler
+import com.example.data.local.datastore.LocalDataSource
+import com.example.data.local.datastore.LocalDataSourceImpl
 import com.example.data.local.datastore.SharedDataPreferences
 import com.example.data.remote.apiservices.NewsHeadlineApiService
 import com.example.data.remote.datasource.RemoteDataSource
 import com.example.data.remote.datasource.RemoteDataSourceImp
+import com.example.data.repositories.ContactsRepositoryImpl
 import com.example.data.repositories.NewsHeadlineRepositoryImp
 import com.example.domain.exceptions.IErrorHandler
+import com.example.domain.repositories.ContactsRepository
 import com.example.domain.repositories.NewsHeadLineRepository
 import dagger.Module
 import dagger.Provides
@@ -40,4 +45,15 @@ object DataModule {
     @Singleton
     fun provideNewsHeadlineRepository(remoteDataSource: RemoteDataSource): NewsHeadLineRepository =
         NewsHeadlineRepositoryImp(remoteDataSource)
+
+    @Provides
+    @Singleton
+    fun provideLocalDataSource(
+        application: Application
+    ): LocalDataSource = LocalDataSourceImpl(application.contentResolver)
+
+    @Provides
+    @Singleton
+    fun provideContactsRepository(localDataSource: LocalDataSource): ContactsRepository =
+        ContactsRepositoryImpl(localDataSource)
 }

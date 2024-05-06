@@ -1,65 +1,100 @@
 package com.example.newproject
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.viewpager2.widget.ViewPager2
+import com.example.newproject.adapter.ViewPagerAdapter
 import com.example.newproject.base.BaseActivity
 import com.example.newproject.databinding.ActivityMainBinding
-import com.example.newproject.other.Resource
-import com.example.newproject.ui.ContentInterface
-import com.example.newproject.viewmodel.NewsDetailsViewModel
-import com.example.newproject.viewmodel.NewsHeadlineViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity(), ContentInterface {
-    private val newsDetailViewModel: NewsDetailsViewModel by viewModels()
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val mViewModel: NewsHeadlineViewModel by viewModels()
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.setVariable(BR.mViewModel, mViewModel)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        newsDetailViewModel.getNewsHeadline("in")
-        lifecycleScope.launch {
-            newsDetailViewModel.newsHeadlines.collect {
-                when (it) {
-                    is Resource.Loading -> Log.d(TAG, "onCreate: Loading")
-                    is Resource.Success -> {
-                        Log.d(TAG, "onCreate: Success ${it.data?.articles}")
-                        it.data?.articles?.let { articles ->
-                            mViewModel.setNewsHeadlineData(articles, this@MainActivity)
-                        }
-                    }
+        initUI()
+        registerListeners()
+    }
 
-                    is Resource.Error -> Log.d(TAG, "onCreate: Error")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        /*   val label = navController.currentDestination?.label
+           // Update the selected item in the bottom navigation view
+           binding.bottomNav.menu.forEach {
+               if (it.title == label) it.isChecked = true
+           }*/  //for navigation with nav controller
+    }
+
+    override fun initUI() {
+//        setUpNavController()
+        val adapter = ViewPagerAdapter(this)
+        binding.viewPager.adapter = adapter
+    }
+
+    //initialising nav controller
+    private fun setUpNavController() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.mainNavHostFragment) as NavHostFragment
+        navController = navHostFragment.navController
+    }
+
+    override fun registerListeners() {
+        //menu item click listener
+        binding.bottomNav.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.actionNews -> {
+                    binding.viewPager.currentItem = 0
+                    //navController.navigate(R.id.newsFragment)
+                    true
                 }
+
+                R.id.actionContact -> {
+                    binding.viewPager.currentItem = 1
+                    //navController.navigate(R.id.contactFragment)
+                    true
+                }
+
+                R.id.actionBle -> {
+                    binding.viewPager.currentItem = 2
+                    //navController.navigate(R.id.bleFragment)
+                    true
+                }
+
+                R.id.actionIPC -> {
+                    binding.viewPager.currentItem = 3
+                    //navController.navigate(R.id.ipcFragment)
+                    true
+                }
+
+                else -> false
             }
         }
+
+        // Add a page change listener to ViewPager2
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                // Update the selected item in the BottomNavigationView
+                binding.bottomNav.menu.getItem(position).isChecked = true
+            }
+        })
     }
 
-    override fun onClick(data: String?) {
-        val urlIntent = Intent(
-            Intent.ACTION_VIEW,
-            Uri.parse(data)
-        )
-        startActivity(urlIntent)
-    }
 
     companion object {
         private const val TAG = "MainActivity"

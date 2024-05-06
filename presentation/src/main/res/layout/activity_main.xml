@@ -3,31 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="mViewModel"
-            type="com.example.newproject.viewmodel.NewsHeadlineViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNews"
-            android:layout_width="wrap_content"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:setAdapter="@{mViewModel.newsHeadlineAdapter}"
-            tools:itemCount="5"
-            tools:listitem="@layout/rv_item_layout" />
+            app:menu="@menu/bottom_app_bar" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mainNavHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#D5D2D2"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/bottomNav"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--        add this below line when we are want navigation with nav controller & remove the view pager-->
+        <!--        app:navGraph="@navigation/nav_graph"-->
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomNav"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

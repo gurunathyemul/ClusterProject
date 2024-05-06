@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/actionNews"
+        android:icon="@drawable/ic_news"
+        android:title="@string/news" />
+
+    <item
+        android:id="@+id/actionContact"
+        android:icon="@drawable/ic_contacts"
+        android:title="@string/contact" />
+
+    <item
+        android:id="@+id/actionBle"
+        android:icon="@drawable/ic_bluetooth"
+        android:title="@string/ble" />
+
+    <item
+        android:id="@+id/actionIPC"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/ipc" />
+
+</menu>

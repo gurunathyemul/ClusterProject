@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.example.domain.model.contacts.Contact" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+        <variable
+            name="selectedPosition"
+            type="java.lang.Integer" />
+
+        <variable
+            name="textVisibility"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="mViewModel"
+            type="com.example.newproject.viewmodel.ContactsViewModel" />
+
+        <import type="com.example.newproject.adapter.BindingAdapter" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:paddingVertical="30dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.02"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:photoUri="@{obj.image}"
+                    tools:src="@drawable/ic_person" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@{obj.name}"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/tvNumber"
+                    app:layout_constraintEnd_toStartOf="@+id/checkBox"
+                    app:layout_constraintStart_toEndOf="@id/ivProfile"
+                    app:layout_constraintTop_toTopOf="@id/ivProfile"
+                    app:layout_constraintVertical_bias="0.01"
+                    tools:text="@tools:sample/lorem/random" />
+
+                <TextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/times"
+                    android:lines="1"
+                    android:text="@{String.valueOf(obj.number)}"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/checkBox"
+                    app:layout_constraintStart_toStartOf="@id/tvName"
+                    app:layout_constraintTop_toBottomOf="@id/tvName"
+                    tools:text="@tools:sample/lorem/random" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{mViewModel.isChecked(obj.contactId)}"
+                    android:onClick="@{() -> mViewModel.selectedContact(obj.contactId)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toEndOf="@id/ivProfile"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
