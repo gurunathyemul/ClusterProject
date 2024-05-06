@@ -3,6 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="obj"
+            type="java.lang.String" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+        <variable
+            name="selectedPosition"
+            type="java.lang.Integer" />
+
+        <variable
+            name="textVisibility"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="mViewModel"
+            type="java.lang.String" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"

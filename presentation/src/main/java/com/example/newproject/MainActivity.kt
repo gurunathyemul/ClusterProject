@@ -57,26 +57,20 @@ class MainActivity : BaseActivity() {
         //menu item click listener
         binding.bottomNav.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.actionNews -> {
+                R.id.actionHome -> {
                     binding.viewPager.currentItem = 0
-                    //navController.navigate(R.id.newsFragment)
-                    true
-                }
-
-                R.id.actionContact -> {
-                    binding.viewPager.currentItem = 1
-                    //navController.navigate(R.id.contactFragment)
+                    //navController.navigate(R.id.homeFragment)
                     true
                 }
 
                 R.id.actionBle -> {
-                    binding.viewPager.currentItem = 2
+                    binding.viewPager.currentItem = 1
                     //navController.navigate(R.id.bleFragment)
                     true
                 }
 
                 R.id.actionIPC -> {
-                    binding.viewPager.currentItem = 3
+                    binding.viewPager.currentItem = 2
                     //navController.navigate(R.id.ipcFragment)
                     true
                 }

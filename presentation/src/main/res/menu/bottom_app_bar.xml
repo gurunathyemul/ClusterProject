@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/actionNews"
-        android:icon="@drawable/ic_news"
-        android:title="@string/news" />
-
-    <item
-        android:id="@+id/actionContact"
-        android:icon="@drawable/ic_contacts"
-        android:title="@string/contact" />
+        android:id="@+id/actionHome"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
 
     <item
         android:id="@+id/actionBle"

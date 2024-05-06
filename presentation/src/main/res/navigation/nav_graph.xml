@@ -3,18 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/newsFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/newsFragment"
-        android:name="com.example.newproject.view.NewsFragment"
-        android:label="@string/news"
-        tools:layout="@layout/fragment_news" />
-    <fragment
-        android:id="@+id/contactFragment"
-        android:name="com.example.newproject.view.ContactFragment"
-        android:label="@string/contact"
-        tools:layout="@layout/fragment_contact" />
+        android:id="@+id/homeFragment"
+        android:name="com.example.newproject.view.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/bleFragment"
         android:name="com.example.newproject.view.BleFragment"
