@@ -1,29 +1,39 @@
-package com.example.newproject.base
+package com.example.clusterproject.base
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import dagger.hilt.android.AndroidEntryPoint
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 
-@AndroidEntryPoint
-open class BaseActivity : AppCompatActivity() {
+
+@Suppress("UNCHECKED_CAST")
+open class BaseFragment<T> : Fragment() {
+    private var mActivity: T? = null
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        this.mActivity = context as T
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate: ")
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        Log.d(TAG, "onRestoreInstanceState: ")
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.d(TAG, "onCreateView: ")
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
-
+    
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "onStart: ")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(TAG, "onRestart: ")
     }
 
     override fun onResume() {
@@ -51,9 +61,9 @@ open class BaseActivity : AppCompatActivity() {
         Log.d(TAG, "onDestroy: ")
     }
 
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        Log.d(TAG, "onDetachedFromWindow: ")
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d(TAG, "onDestroyView: ")
     }
 
     open fun initUI() {}
@@ -61,6 +71,6 @@ open class BaseActivity : AppCompatActivity() {
     open fun initObservers() {}
 
     companion object {
-        private const val TAG = "BaseActivity"
+        private const val TAG = "BaseFragment"
     }
 }

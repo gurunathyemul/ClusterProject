@@ -1,11 +1,11 @@
-package com.example.newproject.adapter
+package com.example.clusterproject.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.newproject.view.BleFragment
-import com.example.newproject.view.IpcFragment
-import com.example.newproject.view.HomeFragment
+import com.example.clusterproject.view.BleFragment
+import com.example.clusterproject.view.IpcFragment
+import com.example.clusterproject.view.HomeFragment
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {

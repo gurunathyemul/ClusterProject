@@ -1,29 +1,28 @@
-package com.example.newproject.view
+package com.example.clusterproject.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.newproject.MainActivity
-import com.example.newproject.base.BaseFragment
-import com.example.newproject.databinding.FragmentHomeBinding
+import com.example.clusterproject.MainActivity
+import com.example.clusterproject.base.BaseFragment
+import com.example.clusterproject.databinding.FragmentBleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<MainActivity>() {
-
-    private lateinit var binding: FragmentHomeBinding
+class BleFragment : BaseFragment<MainActivity>() {
+    private lateinit var binding: FragmentBleBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentBleBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     companion object {
-        private const val TAG = "HomeFragment"
+        private const val TAG = "BleFragment"
     }
 }

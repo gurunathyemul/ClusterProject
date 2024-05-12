@@ -8,18 +8,62 @@
         android:layout_height="match_parent"
         tools:context=".view.IpcFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvNoInternet"
+        <TextView
+            android:id="@+id/tvConnectionStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IPC"
+            android:background="#03A9F4"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toTopOf="@id/tvPID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:text="Connected Status" />
+
+        <TextView
+            android:id="@+id/tvPID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#8BC34A"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toTopOf="@id/tvPkgName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvConnectionStatus"
+            app:layout_constraintVertical_bias="0.2"
+            tools:text="PID" />
+
+        <TextView
+            android:id="@+id/tvPkgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#03A9F4"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toTopOf="@id/tvClientData"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPID"
+            app:layout_constraintVertical_bias="0.25"
+            tools:text="PackageName" />
+
+        <TextView
+            android:id="@+id/tvClientData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#8BC34A"
             android:textSize="25dp"
-            android:textStyle="bold"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvPkgName"
+            app:layout_constraintVertical_bias="0.25"
+            tools:text="ClientData" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

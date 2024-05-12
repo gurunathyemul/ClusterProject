@@ -1,4 +1,4 @@
-package com.example.newproject.util
+package com.example.clusterproject.util
 
 import android.content.Context
 import android.content.Intent

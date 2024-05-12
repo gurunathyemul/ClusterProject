@@ -1,4 +1,4 @@
-package com.example.newproject
+package com.example.clusterproject
 
 import org.junit.Test
 

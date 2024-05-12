@@ -1,5 +1,6 @@
-package com.example.newproject
+package com.example.clusterproject
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -7,9 +8,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.newproject.adapter.ViewPagerAdapter
-import com.example.newproject.base.BaseActivity
-import com.example.newproject.databinding.ActivityMainBinding
+import com.example.clusterproject.adapter.ViewPagerAdapter
+import com.example.clusterproject.base.BaseActivity
+import com.example.clusterproject.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,6 +45,7 @@ class MainActivity : BaseActivity() {
 //        setUpNavController()
         val adapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = adapter
+//        startService(Intent(this, AIDLService::class.java))
     }
 
     //initialising nav controller

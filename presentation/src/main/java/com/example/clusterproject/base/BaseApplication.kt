@@ -1,4 +1,4 @@
-package com.example.newproject.base
+package com.example.clusterproject.base
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
