@@ -1,11 +1,11 @@
-package com.example.newproject.base
+package com.example.clusterproject.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newproject.util.Commons.textVisibility
+import com.example.clusterproject.util.Commons.textVisibility
 
 abstract class BaseAdapter(private var mViewModel: BaseAndroidViewModel) :
     RecyclerView.Adapter<BaseViewHolder?>() {

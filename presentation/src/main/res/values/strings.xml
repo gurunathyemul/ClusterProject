@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NewProject</string>
+    <string name="app_name">ClusterProject</string>
     <string name="contact">Contact</string>
     <string name="ble">BLE</string>
     <string name="ipc">IPC</string>

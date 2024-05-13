@@ -7,15 +7,16 @@ plugins {
 }
 
 android {
-    namespace = "com.example.newproject"
+    namespace = "com.example.clusterproject"
     compileSdk = 34
 
     buildFeatures {
         dataBinding = true
+        aidl=true
     }
 
     defaultConfig {
-        applicationId = "com.example.newproject"
+        applicationId = "com.example.clusterproject"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

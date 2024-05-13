@@ -1,8 +1,8 @@
-package com.example.newproject.base
+package com.example.clusterproject.base
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newproject.BR
+import com.example.clusterproject.BR
 class BaseViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(
         mViewModel: BaseAndroidViewModel,

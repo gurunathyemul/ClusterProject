@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.newproject.view.HomeFragment"
+        android:name="com.example.clusterproject.view.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/bleFragment"
-        android:name="com.example.newproject.view.BleFragment"
+        android:name="com.example.clusterproject.view.BleFragment"
         android:label="@string/ble"
         tools:layout="@layout/fragment_ble" />
     <fragment
         android:id="@+id/ipcFragment"
-        android:name="com.example.newproject.view.IpcFragment"
+        android:name="com.example.clusterproject.view.IpcFragment"
         android:label="@string/ipc"
         tools:layout="@layout/fragment_ipc" />
 </navigation>
