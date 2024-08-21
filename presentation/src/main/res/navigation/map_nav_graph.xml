@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map_nav_graph"
+    app:startDestination="@id/mapHomeFragment">
+    <fragment
+        android:id="@+id/mapHomeFragment"
+        android:name="com.example.clusterproject.view.map.MapHomeFragment"
+        android:label="MapHome"
+        tools:layout="@layout/fragment_map_home" />
+</navigation>
