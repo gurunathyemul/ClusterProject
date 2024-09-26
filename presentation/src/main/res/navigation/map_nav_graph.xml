@@ -9,4 +9,9 @@
         android:name="com.example.clusterproject.view.map.MapHomeFragment"
         android:label="MapHome"
         tools:layout="@layout/fragment_map_home" />
+    <fragment
+        android:id="@+id/mapAutoSuggestFragment"
+        android:name="com.example.clusterproject.view.map.LocationSuggestFragment"
+        android:label="AutoSuggest"
+        tools:layout="@layout/fragment_suggest_location_map" />
 </navigation>

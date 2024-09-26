@@ -12,7 +12,7 @@ android {
 
     buildFeatures {
         dataBinding = true
-        aidl=true
+        aidl = true
     }
 
     defaultConfig {
@@ -80,28 +80,26 @@ dependencies {
     //maps
     //sdk
     implementation("com.mappls.sdk:place-widget:2.1.0")
-    implementation ("com.mappls.sdk:mappls-android-sdk:8.0.8")
-  //Annotation Pl("ugin")
+    implementation("com.mappls.sdk:mappls-android-sdk:8.2.0")
+    //Annotation Plugin
     implementation("com.mappls.sdk:annotation-plugin:1.0.1")
 
-    /*
-        implementation("com.mappls.sdk:directions-plugin:1.0.1")
 
-        implementation("com.mappls.sdk:scalebar-plugin:1.0.0")
-        implementation("com.mappls.sdk:geofence-ui:1.0.0")
+    implementation("com.mappls.sdk:directions-plugin:1.0.1")
+    implementation("com.mappls.sdk:scalebar-plugin:1.0.0")
+    implementation("com.mappls.sdk:geofence-ui:1.0.0")
 
-        //for nearby wi("dget")
-        implementation("com.mappls.sdk:nearby-ui:1.0.2")
+    //for nearby wi("dget")
+    implementation("com.mappls.sdk:nearby-ui:1.0.2")
 
-        implementation("com.mappls.sdk:driving-range-plugin:1.0.0")
-        //for direction(" widget")
-        implementation("com.mappls.sdk:direction-ui:1.2.2")
-        //Geoanalytics ("plugin")
-        implementation("com.mappls.sdk:geoanalytics-plugin:1.0.0")
-        //for location
-        //implementatio("n 'com.google.android.gms:play-services-location:21.0.1'")
+    implementation("com.mappls.sdk:driving-range-plugin:1.0.0")
+    //for direction(" widget")
+    implementation("com.mappls.sdk:direction-ui:1.2.2")
+    //Geoanalytics ("plugin")
+    implementation("com.mappls.sdk:geoanalytics-plugin:1.0.0")
+    //for location
+    //implementatio("n 'com.google.android.gms:play-services-location:21.0.1'")
 
-        implementation("com.github.QuadFlask:colorpicker:0.0.15")*/
 //    implementation ("com.mappls.sdk:mappls-navigation-sdk:1.0.0")
 
 }

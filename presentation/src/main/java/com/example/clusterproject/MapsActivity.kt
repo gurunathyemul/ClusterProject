@@ -46,7 +46,10 @@ class MapsActivity : BaseActivity() {
         binding.bottomNav.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.actionHome -> {
-                    navController.navigate(R.id.homeFragment)
+                    navController.navigate(R.id.mapHomeFragment)
+                    true
+                }  R.id.actionBle -> {
+                    navController.navigate(R.id.mapAutoSuggestFragment)
                     true
                 }
 

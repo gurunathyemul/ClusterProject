@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.mapmyindia.sdk.demo.kotlin.plugin.in.matter.viu.app.DirectionActivity">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:tabBackground="@drawable/tab_item"
+            app:tabIndicatorColor="@null"
+            app:tabSelectedTextColor="@color/colorPrimary">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_drive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/ic_directions_car_black_24dp"
+                android:text="Drive" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_bike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/ic_directions_bike_black_24dp"
+                android:text="Bike" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_walk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/ic_directions_walk_black_24dp"
+                android:text="Walk" />
+
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <com.mappls.sdk.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/direction_details_layout"
+            android:layout_below="@id/tab_layout_profile" />
+
+        <RadioGroup
+            android:id="@+id/rg_resource_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_layout_profile"
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            android:minHeight="32dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_without_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Non Traffic" />
+
+            <RadioButton
+                android:id="@+id/rb_with_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Traffic" />
+
+            <RadioButton
+                android:id="@+id/rb_with_route_eta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Route ETA" />
+
+        </RadioGroup>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/edit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/direction_details_layout"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_edit_24" />
+
+        <LinearLayout
+            android:id="@+id/direction_details_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:minHeight="64dp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Distance  : "
+                android:textColor="#D31027"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:text="Duration"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

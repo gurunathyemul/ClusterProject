@@ -19,6 +19,7 @@ import com.mappls.sdk.maps.OnMapReadyCallback
 import com.mappls.sdk.maps.Style
 import com.mappls.sdk.maps.annotations.IconFactory
 import com.mappls.sdk.maps.annotations.MarkerOptions
+import com.mappls.sdk.maps.camera.CameraPosition
 import com.mappls.sdk.maps.camera.CameraUpdateFactory
 import com.mappls.sdk.maps.geometry.LatLng
 import com.mappls.sdk.maps.location.LocationComponent
@@ -38,6 +39,7 @@ class MapHomeFragment : BaseFragment<MapsActivity>(), OnMapReadyCallback {
     private lateinit var mapplsMap: MapplsMap
     private lateinit var locationComponent: LocationComponent
     private lateinit var locationEngine: LocationEngine
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,6 +66,18 @@ class MapHomeFragment : BaseFragment<MapsActivity>(), OnMapReadyCallback {
         markerOptions.title = "Solapur"
         markerOptions.snippet = "Solapur"
         mapplsMap.addMarker(markerOptions)
+
+        moveCamera()
+    }
+
+    /**this is done for animating/moving camera to particular position */
+    private fun moveCamera() {
+        val cameraPosition = CameraPosition.Builder().target(
+            LatLng(
+                25.321684, 82.987289
+            )
+        ).zoom(8.0).tilt(0.0).build()
+        mapplsMap.cameraPosition = cameraPosition
     }
 
     //https://docs.mapbox.com/android/maps/api/9.6.0/com/mapbox/mapboxsdk/location/LocationComponentOptions.Builder.html
@@ -115,6 +129,7 @@ class MapHomeFragment : BaseFragment<MapsActivity>(), OnMapReadyCallback {
         object : LocationEngineCallback<LocationEngineResult> {
             override fun onSuccess(locationEngineResult: LocationEngineResult?) {
                 val location = locationEngineResult?.lastLocation
+                Log.d(TAG, "onSuccess: location::$location")
                 location?.let {
                     mapplsMap.animateCamera(
                         CameraUpdateFactory.newLatLng(
@@ -156,6 +171,42 @@ class MapHomeFragment : BaseFragment<MapsActivity>(), OnMapReadyCallback {
                 Log.d(TAG, "locationPermissions: disable")
             }
         }
+
+
+    override fun onStart() {
+        super.onStart()
+        binding.mapView.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.mapView.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.mapView.onDestroy()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.mapView.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.mapView.onResume()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        binding.mapView.onLowMemory()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.mapView.onDestroy()
+    }
 
     companion object {
         private const val TAG = "MapHomeFragment"

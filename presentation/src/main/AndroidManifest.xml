@@ -5,8 +5,7 @@
     <!-- for ipc -->
     <queries>
         <package android:name="com.example.clusterproject" />
-    </queries>
-    <!--for map-->
+    </queries> <!-- for map -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -23,13 +22,15 @@
         android:theme="@style/Theme.NewProject"
         tools:targetApi="31">
         <activity
+            android:name=".InputActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.mapmyindia.sdk.demo.kotlin.plugin.com.example.clusterproject.DirectionActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".MapsActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service
